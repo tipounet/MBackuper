@@ -1,0 +1,95 @@
+
+##########################################################
+################## SPÉCIFIQUE AU PROJET ##################
+##########################################################
+
+
+_ressources_
+_stw_
+/archives/*.zip
+/exports/*.zip
+/exports/base_de_donnees/*.zip
+/exports/repertoires/*.zip
+/config_localhost.inc.php
+/icon.png
+*.psd
+
+
+##########################################################
+######################### COMMUN #########################
+##########################################################
+
+### PHPSTORM ###
+.idea/
+
+### DREAMWEAVER ###
+_notes
+dwsync.xml
+
+### BACKUP ###
+*.bak
+*.backup
+*.save
+*.old
+_bak*
+_backup*
+_save*
+_old*
+*_bak.*
+*_backup.*
+*_save.*
+*_old.*
+
+### TMP ###
+~*
+*~
+*.tmp
+*_tmp*
+
+### APPLE ###
+.~*
+._*
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### WINDOWS ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.cab
+*.msi
+*.msm
+*.msp
+
+### TAGS ###
+TAGS
+!TAGS/
+tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+
+### ICONS [ ATTENTION : NE RIEN ÉCRIRE APRÈS ] ###
+.mac.icon.folder.psd
+Icon
+

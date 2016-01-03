@@ -1,0 +1,12 @@
+
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /MBackuper/
+
+RewriteRule ^index.html$                        index.php               [QSA]
+RewriteRule ^cron_([a-z,0-9]{64}).php$          index.php?token=$1      [QSA]
+RewriteRule ^archive_([a-z,0-9]{32}).zip        index.php?archive=$1    [QSA]
+
+<Files ~ "\.(htaccess|ini|inc.php)$">
+	Deny from all
+</Files>
