@@ -55,15 +55,6 @@ define('BKP_TIME',time());
 define('BKP_FILE',date('Y-m-d',BKP_TIME).'_'.date('H',BKP_TIME).'h'.date('i',BKP_TIME).'_backup.zip');
 
 /**
- * Application des droits d'accès aux dossiers spécifiques sauvegardes
- */
-
-chmod(ARCHIVES_FOLDER,0755);
-chmod(EXPORT_FOLDER,0755);
-chmod(EXPORT_FOLDER.'base_de_donnees/',0755);
-chmod(EXPORT_FOLDER.'repertoires/',0755);
-
-/**
  * Suppression des sauvegardes de EXPORT_FOLDER
  */
 
