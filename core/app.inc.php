@@ -37,9 +37,8 @@ require_once(REALPATH.'core/functions.inc.php');
  * Définition des constantes
  */
 
-$REALPATH_array = explode('/',REALPATH);
-$REALPATH_array = array_filter($REALPATH_array);
-define('CURRENT_FOLDER',$REALPATH_array[count($REALPATH_array)]);
+$REALPATH_array = explode(DIRECTORY_SEPARATOR,REALPATH);
+define('CURRENT_FOLDER',$REALPATH_array[count($REALPATH_array)-2]);
 define('SSL',($_SERVER['HTTPS']=='on'?'s':NULL));
 
 $uri = explode('/',$_SERVER['REQUEST_URI']);

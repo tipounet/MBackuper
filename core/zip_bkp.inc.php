@@ -56,7 +56,7 @@ class zip_bkp {
 			foreach($this->ignore as $value){
 				$regexp .= $value.'|';
 			}
-			$this->regexp = '/^'.preg_quote(substr($regexp,0,-1)).'$/';
+			$this->regexp = '/^'.preg_quote(str_replace(array('/','/'),DIRECTORY_SEPARATOR,substr($regexp,0,-1)),DIRECTORY_SEPARATOR=='/'?'/':'\\').'$/';
 		}else{
 			$this->regexp = NULL;
 		}
@@ -88,17 +88,16 @@ class zip_bkp {
 			foreach ($files as $name => $file){
 				if(!$file->isDir()){
 					$filePath = $file->getRealPath();
-					$relativePath = substr($filePath, strlen(realpath($folder)) + 1);
-					if(preg_match('/^'.CURRENT_FOLDER.'\//i',$relativePath)==false){
+					$relativePath = substr($filePath,strlen(realpath($folder))+1);
+					if(preg_match('/^'.CURRENT_FOLDER.preg_quote(DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR=='/'?'/':'\\').'.*\.zip/',$relativePath)==false){
 						if($this->regexp!==NULL){
-							$relativePath_array = explode('/',$relativePath);
+							$relativePath_array = explode(DIRECTORY_SEPARATOR,$relativePath);
 							if(preg_match($this->regexp,$relativePath_array[count($relativePath_array)-1])==false){
-								$zip->addFile($filePath, $relativePath);
+								$zip->addFile($filePath,$relativePath);
 							}
 						}else{
-							$zip->addFile($filePath, $relativePath);
+							$zip->addFile($filePath,$relativePath);
 						}
-
 					}
 				}
 			}
