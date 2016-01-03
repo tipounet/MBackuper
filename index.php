@@ -96,7 +96,7 @@ if(!isset($_SESSION['CONNECT'])){
             <pre><? echo $return; ?></pre>
             <br>
             <br>
-            <strong>Le(s) répertoire(s) :</strong>
+            <strong>Le(s) répertoire(s) à sauvegarder :</strong>
             <br>
             <br>
             <?
@@ -108,12 +108,25 @@ if(!isset($_SESSION['CONNECT'])){
             <pre><? echo ($return==NULL ? 'Aucun répertoire':$return); ?></pre>
             <br>
             <br>
+            <strong>Le(s) répertoire(s) et/ou fichier(s) à ignorer :</strong>
+            <br>
+            <br>
+            <?
+            $return = NULL;
+            foreach($_IGNORES_TMP as $key=>$value){
+                $return .= $value."\n";
+            }
+            ?>
+            <pre><? echo ($return==NULL ? 'Aucun répertoire ou fichier':$return); ?></pre>
+            <br>
+            <br>
             <strong>Tâches CRON :</strong>
             <br>
             <br>
             <?
             $return = NULL;
             $return .= 'Accès :'."\t\t\t".($_CRON['actif']==true ? 'activé':'désactivé')."\n";
+            $return .= 'Archive(s) max. :'."\t".$_CRON['max_archives']."\n";
             $return .= 'URL [confidentiel] :'."\t".str_replace('index.html','cron_'.$_TOKEN.'.php',URL)."\n";
             $return .= 'Email :'."\t\t\t".$_CRON['email']."\n";
             ?>

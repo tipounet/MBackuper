@@ -54,9 +54,9 @@ class zip_bkp {
 		if(count($this->ignore)!=0){
 			$regexp = NULL;
 			foreach($this->ignore as $value){
-				$regexp .= $value.'|';
+				$regexp .= '('.preg_quote($value,DIRECTORY_SEPARATOR=='/'?'/':'\\').')|';
 			}
-			$this->regexp = '/^'.preg_quote(str_replace(array('/','/'),DIRECTORY_SEPARATOR,substr($regexp,0,-1)),DIRECTORY_SEPARATOR=='/'?'/':'\\').'$/';
+			$this->regexp = '/'.str_replace(array('/','/'),DIRECTORY_SEPARATOR,substr($regexp,0,-1)).'/';
 		}else{
 			$this->regexp = NULL;
 		}
@@ -85,22 +85,16 @@ class zip_bkp {
 
 			$files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(realpath($folder)), RecursiveIteratorIterator::LEAVES_ONLY);
 
-			foreach ($files as $name => $file){
-				if(!$file->isDir()){
-					$filePath = $file->getRealPath();
-					$relativePath = substr($filePath,strlen(realpath($folder))+1);
-					if(preg_match('/^'.CURRENT_FOLDER.preg_quote(DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR=='/'?'/':'\\').'.*\.zip/',$relativePath)==false){
-						if($this->regexp!==NULL){
-							$relativePath_array = explode(DIRECTORY_SEPARATOR,$relativePath);
-							if(preg_match($this->regexp,$relativePath_array[count($relativePath_array)-1])==false){
-								$zip->addFile($filePath,$relativePath);
-							}
-						}else{
-							$zip->addFile($filePath,$relativePath);
-						}
+			foreach($files as $name=>$file){
+				$filePath = $file->getRealPath();
+				$relativePath = substr($filePath,strlen(realpath($folder))+1);
+				if(!$file->isDir()&&preg_match('/^'.CURRENT_FOLDER.preg_quote(DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR=='/'?'/':'\\').'.*\.zip/',$relativePath)==false){
+					if($this->regexp!==NULL&&preg_match($this->regexp,$name)==false){
+						$zip->addFile($filePath,$relativePath);
 					}
 				}
 			}
+
 			$zip->close();
 
 		}

@@ -32,19 +32,27 @@ $_BASE_DE_DONNEES = array(
 );
 
 /**
- * Le(s) répertoire(s)
+ * Le(s) répertoire(s) à sauvegarder
  */
 
-$_REPERTOIRES = array(
-	'repertoire/',												// Répertoire (ex : 'rep/' ou 'rep/rep/' ou '../rep/' ou '../rep/rep/' ...
+$_REPERTOIRES = array(											// Répertoire(s) (ex : 'rep/' ou 'rep/rep/' ou '../rep/' ou '../rep/rep/' ...
+	'repertoire/',
 );
 
 /**
- * Tâches CRON
+ * Le(s) répertoire(s) et/ou fichier(s) à ignorer
+ */
+
+$_IGNORES = array(												// Chemin(s) (ex : '/fichier.ext' ou '/rep/fichier.ext' ou '/rep/' ou '/rep/rep/' ou '/rep/rep/fichier.ext' ...
+	'',
+);
+
+/**
+ * Options relatives aux tâches CRON
  */
 
 $_CRON = array(
-	'actif'				=> true,								// Activer ou non l'accès spécifique aux tâches CRON
+	'actif'				=> false,								// Activer ou non l'accès spécifique aux tâches CRON
 	'email'				=> 'email@domaine.com',					// Réception des notifications avec les liens de téléchargement et de suppresion des archives
-	'max_archives'		=> 1,									// Nombre d'archive maximum à conserver
+	'max_archives'		=> 0,									// Nombre d'archive maximum à conserver (les plus anciennes seront supprimées)
 );

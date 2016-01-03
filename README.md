@@ -29,11 +29,20 @@ Il y a deux façons d’utiliser MBackuper :
 
 ## Installation
 
-- Téléchargez MBackuper : https://github.com/benyounesmehdi/MBackuper
-- Placez les fichiers sources dans le dossier « MBackuper/ »
-- Configurez MBackuper en éditant le fichier « config.inc.php »
-- Donnez aux dossiers « MBackuper/archives/ » et « MBackuper/exports/ » (et ses sous-dossiers) les droits d’accès « 755 »
-- Accédez à MBackuper : http://www.domaine.com/MBackuper/index.html
+Pour installer MBackuper, suivez la procédure suivante :
+
+  - Téléchargez MBackuper : https://github.com/benyounesmehdi/MBackuper
+  - Dézippez le fichier « *MBackuper-master.zip* »
+  - Changez le nom du dossier « *MBackuper-master* » en « *MBackuper* »
+  - Uploadez le dossier « *MBackuper* » sur votre serveur web
+  - Donnez aux dossiers « *MBackuper/archives/* » et « *MBackuper/exports/* » (et ses sous-dossiers) les droits d’accès 777
+  - Configurez MBackuper en éditant le fichier « *config.inc.php* » :
+    - mot de passe principal
+    - données de connexion à la base de données
+    - le(s) répertoire(s) à sauvegarder
+    - le(s) répertoire(s) et/ou fichier(s) à ignorer
+    - options relatives aux tâches CRON
+  - Accédez à MBackuper : http://www.domaine.com/MBackuper/index.html
 
 
 ## Auteur

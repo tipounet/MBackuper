@@ -170,6 +170,51 @@ foreach($_REPERTOIRES_TMP as $folder){
 }
 
 /**
+ * Traitement des éléments à ignorer
+ */
+
+$_IGNORES_TMP = array_filter($_IGNORES);
+$_IGNORES_TMP = array_unique($_IGNORES_TMP);
+
+$_IGNORES_BASE = array(
+	'/.git/',
+	'',
+	'/.idea/',
+	'',
+	'.~',
+	'.DS_Store',
+	'.AppleDouble',
+	'.LSOverride',
+	'.DocumentRevisions-V100',
+	'.fseventsd',
+	'.Spotlight-V100',
+	'.TemporaryItems',
+	'.Trashes',
+	'.VolumeIcon.icns',
+	'.AppleDB',
+	'.AppleDesktop',
+	'Network Trash Folder',
+	'Temporary Items',
+	'.apdisk',
+	'',
+	'Thumbs.db',
+	'ehthumbs.db',
+	'Desktop.ini',
+	'$RECYCLE.BIN/',
+	'.lnk',
+	'.cab',
+	'.msi',
+	'.msm',
+	'.msp',
+	'',
+	'dwsync.xml',
+);
+
+$_IGNORES = array_merge($_IGNORES_TMP,$_IGNORES_BASE);
+$_IGNORES = array_filter($_IGNORES);
+$_IGNORES = array_unique($_IGNORES);
+
+/**
  * Actions relatives à la connexion
  */
 
@@ -230,7 +275,7 @@ if($_POST['launch']==='base_de_donnees'||$_POST['launch']==='repertoires'||$_POS
 				'folders_data'	=> $_REPERTOIRES,
 				'repertoire'	=> EXPORT_FOLDER.'repertoires/',
 				'nom_fichier'	=> NULL,
-				'ignore'		=> array(),
+				'ignore'		=> $_IGNORES,
 			)
 		);
 		$_SESSION['REPERTOIRES'] = $zip_bkp->return;
@@ -322,7 +367,9 @@ if($_POST['launch']==='base_de_donnees'||$_POST['launch']==='repertoires'||$_POS
 				'folders_data'	=> array('exports'),
 				'repertoire'	=> $repertoire,
 				'nom_fichier'	=> BKP_FILE,
-				'ignore'		=> array('.htaccess'),
+				'ignore'		=> array(
+					'.htaccess'
+				),
 			)
 		);
 
