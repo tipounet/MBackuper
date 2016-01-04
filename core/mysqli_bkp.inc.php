@@ -42,7 +42,7 @@ class mysqli_bkp extends mysqli {
 
 		@parent::__construct($this->host,$this->user,$this->pass,$this->bdd,$this->port,$this->socket);
 		if($this->connect_error){
-			$this->bkp_errors[] = 'Une erreur s\'est produite lors de la connexion aux bases de données ('.$this->connect_errno.') '. $this->connect_error;
+			$this->bkp_errors[] = 'Une erreur s\'est produite lors de la connexion aux bases de données';
 			return;
 		}
 		
