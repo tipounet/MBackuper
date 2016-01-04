@@ -53,6 +53,6 @@ $_IGNORES = array(												// Chemin(s) (ex : '/fichier.ext' ou '/rep/fichier
 
 $_CRON = array(
 	'actif'				=> false,								// Activer ou non l'accès spécifique aux tâches CRON
-	'email'				=> 'email@domaine.com',					// Réception des notifications avec les liens de téléchargement et de suppresion des archives
+	'email'				=> 'email@domaine.com',					// Réception des notifications avec les liens de téléchargement et de suppression de l'archives
 	'max_archives'		=> 0,									// Nombre d'archive maximum à conserver (les plus anciennes seront supprimées)
 );

@@ -86,12 +86,12 @@ if(!isset($_SESSION['CONNECT'])){
             $return .= 'Hôte :'."\t\t\t".$_BASE_DE_DONNEES['host']."\n";
             $return .= 'Port :'."\t\t\t".$_BASE_DE_DONNEES['port']."\n";
             $return .= 'Utilisateur :'."\t\t".$_BASE_DE_DONNEES['user']."\n";
-            $return .= 'Mot de passe :'."\t\t".'*********'/*$_BASE_DE_DONNEES['pass']*/."\n";
+            $return .= 'Mot de passe :'."\t\t".str_repeat('*',strlen($_BASE_DE_DONNEES['pass']))."\n";
             $return .= 'Base de donnée :'."\t".$_BASE_DE_DONNEES['bdd']."\n";
-            $return .= 'Socket :'."\t\t".($_BASE_DE_DONNEES['socket']==NULL ? 'aucun':$_BASE_DE_DONNEES['socket'])."\n";
+            $return .= 'Socket :'."\t\t".($_BASE_DE_DONNEES['socket']==NULL ? '-':$_BASE_DE_DONNEES['socket'])."\n";
             $return .= 'Codages de caractères :'."\t".$_BASE_DE_DONNEES['charset']."\n";
             $return .= 'Interclassement :'."\t".$_BASE_DE_DONNEES['collation']."\n";
-            $return .= 'Emplacement de la BDD :'."\t".($_BASE_DE_DONNEES['data_directory']==NULL ? 'aucun':$_BASE_DE_DONNEES['data_directory'])."\n";
+            $return .= 'Emplacement de la BDD :'."\t".($_BASE_DE_DONNEES['data_directory']==NULL ? '-':$_BASE_DE_DONNEES['data_directory'])."\n";
             ?>
             <pre><? echo $return; ?></pre>
             <br>
