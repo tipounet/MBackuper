@@ -76,7 +76,7 @@ if(!isset($_SESSION['CONNECT'])){
 }else{
     if(!isset($_POST['launch'])){
 		?>
-        <h2 class="h">Récapitulatif de la configuration (&laquo; <em>config.php</em> &raquo;) :</h2>
+        <h2 class="h">Récapitulatif de la configuration (&laquo; <em>config.inc.php</em> &raquo;) :</h2>
         <p>
             <strong>Données de connexion à la base de données :</strong>
             <br>
@@ -102,7 +102,7 @@ if(!isset($_SESSION['CONNECT'])){
             <?
             $return = NULL;
             foreach($_REPERTOIRES as $key=>$value){
-                $return .= $value."\n";
+                $return .= $value.'/'."\n";
             }
             ?>
             <pre><? echo ($return==NULL ? 'Aucun répertoire':$return); ?></pre>
@@ -135,13 +135,13 @@ if(!isset($_SESSION['CONNECT'])){
             <br>
             Si la configuration est correcte saisissez un commentaire et cliquez sur &laquo; Lancer la sauvegarde &raquo;.
             <br>
-            Dans le cas contraire, veuillez modifier le fichier &laquo; <em>config.php</em> &raquo;.
+            Dans le cas contraire, veuillez modifier le fichier &laquo; <em>config.inc.php</em> &raquo;.
             <br>
             <br>
         </p>
         <form action="index.html" method="post">
             <input type="hidden" name="launch" value="init">
-            <input type="text" name="comment" value="" placeholder="Commentaire (facultatif)" class="comment">
+			<input type="text" name="comment" value="" placeholder="Commentaire (facultatif)" class="comment">
             <input type="submit" value="Lancer la sauvegarde" style="float: left;">
         </form>
         <form action="index.html" method="post" style="float: left;">

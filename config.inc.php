@@ -20,7 +20,7 @@ $_PASSWORD = 'root';
  */
 
 $_BASE_DE_DONNEES = array(
-	'host'				=> '',									// Nom d'hôte
+	'host'				=> 'localhost',							// Nom d'hôte
 	'port'				=> '3306',								// Numéro de port
 	'user'				=> '',									// Nom d'utilisateur
 	'pass'				=> '',									// Mot de passe
@@ -35,8 +35,8 @@ $_BASE_DE_DONNEES = array(
  * Le(s) répertoire(s) à sauvegarder
  */
 
-$_REPERTOIRES = array(											// Répertoire(s) (ex : 'rep/' ou 'rep/rep/' ou '../rep/' ou '../rep/rep/' ...
-	'repertoire/',
+$_REPERTOIRES = array(											// Répertoire(s) (ex : '../rep/' ou '../rep/rep/' ou '../../rep/' ou '../../rep/rep/' ...
+	'../repertoire/',
 );
 
 /**
