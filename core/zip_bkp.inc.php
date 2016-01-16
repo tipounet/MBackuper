@@ -88,11 +88,16 @@ class zip_bkp {
 			foreach($files as $name=>$file){
 				$filePath = $file->getRealPath();
 				$relativePath = substr($filePath,strlen(realpath($folder))+1);
-				if(!$file->isDir()&&preg_match('/^'.CURRENT_FOLDER.preg_quote(DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR=='/'?'/':'\\').'.*\.zip/',$relativePath)==false){
+				if(preg_match('/^'.CURRENT_FOLDER.preg_quote(DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR=='/'?'/':'\\').'.*\.zip/',$relativePath)==false && $relativePath!=NULL){
 					if($this->regexp!==NULL&&preg_match($this->regexp,$name)==false){
-						$zip->addFile($filePath,$relativePath);
+						if($file->isDir()===true){
+							$zip->addEmptyDir($relativePath);
+						}elseif($file->isFile()===true){
+							$zip->addFile($filePath,$relativePath);
+						}
 					}
 				}
+
 			}
 
 			$zip->close();
