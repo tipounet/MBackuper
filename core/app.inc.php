@@ -210,7 +210,7 @@ $_IGNORES = array_unique($_IGNORES);
  */
 
 if(isset($_POST['password'])){
-	if($_POST['password']===$_PASSWORD){
+	if(sha1($_POST['password'])===$_PASSWORD){
 		$_SESSION['CONNECT'] = true;
 	}else{
 		disconnect();
