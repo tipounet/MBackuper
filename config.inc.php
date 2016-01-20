@@ -1,4 +1,4 @@
-<?
+<?php
 
 /******************************************************/
 /*                                                    */
@@ -13,7 +13,7 @@
  * Mot de passe principal
  */
 
-$_PASSWORD = 'dc76e9f0c0006e8f919e0c515c66dbba3982f785';		/* Utilisez <? echo sha1("MON_MOT_DE_PASSE"); ?> pour générer votre mot de passe avec le hachage "SHA1" */
+$_PASSWORD = 'dc76e9f0c0006e8f919e0c515c66dbba3982f785';		/* Utilisez <?php echo sha1("MON_MOT_DE_PASSE"); ?> pour générer votre mot de passe avec le hachage "SHA1" */
 
 /**
  * Données de connexion à la base de données
