@@ -1,4 +1,4 @@
-<?
+<?php
 
 /******************************************************/
 /*                                                    */
@@ -30,7 +30,7 @@ require_once(REALPATH.'core/app.inc.php');
     <link rel="stylesheet" type="text/css" href="template/css/styles.css">
     <link rel="shortcut icon" href="template/img/favicon.ico">
 	<script type="text/javascript" charset="utf-8">
-		<? if($_POST['launch']==='generation'){ ?>
+		<?php if($_POST['launch']==='generation'){ ?>
 			function warning_onleave(){
 				return "ATTENTION, si vous quittez ou si vous actualisez la page la sauvegarde sera supprimée ! Si le téléchargement de la sauvegarde est en cours, vous risquez alors d'obtenir une erreur et vous devrez recommencer.";
 			}
@@ -44,17 +44,17 @@ require_once(REALPATH.'core/app.inc.php');
 				},10);
 			}
 			window.onbeforeunload = warning_onleave;
-		<? } ?>
+		<?php } ?>
 		var stateObj = {foo:'bar'};
 		history.pushState(stateObj, 'MBackuper - Mehdi Benyounes','index.html');
 	</script>
 </head>
-<body<? echo $onload; ?>>
+<body<?php echo $onload; ?>>
 <h1><a href="https://github.com/benyounesmehdi/MBackuper" title="MBackuper" target="_self"><img src="template/img/logo.png" width="64" height="40" alt="MB"/>ackuper</a></h1>
 <p><em>Solution PHP de sauvegarde de projet web</em></p>
 <br>
 <br>
-<?
+<?php
 if(!isset($_SESSION['CONNECT'])){
     ?>
     <h2 class="h">Connexion</h2>
@@ -69,10 +69,9 @@ if(!isset($_SESSION['CONNECT'])){
     </form>
     <br>
 	<br>
-    <? if($_GET['password']==='error'){ ?>
+    <?php if($_GET['password']==='error'){ ?>
         <pre>Le mot de passe que vous avez indiqué est incorrect, veuillez essayer à nouveau !</pre>
-    <? } ?>
-    <?
+    <?php }
 }else{
     if(!isset($_POST['launch'])){
 		?>
@@ -81,7 +80,7 @@ if(!isset($_SESSION['CONNECT'])){
             <strong>Données de connexion à la base de données :</strong>
             <br>
             <br>
-            <?
+            <?php
             $return = NULL;
             $return .= 'Hôte :'."\t\t\t".$_BASE_DE_DONNEES['host']."\n";
             $return .= 'Port :'."\t\t\t".$_BASE_DE_DONNEES['port']."\n";
@@ -93,44 +92,44 @@ if(!isset($_SESSION['CONNECT'])){
             $return .= 'Interclassement :'."\t".$_BASE_DE_DONNEES['collation']."\n";
             $return .= 'Emplacement de la BDD :'."\t".($_BASE_DE_DONNEES['data_directory']==NULL ? '-':$_BASE_DE_DONNEES['data_directory'])."\n";
             ?>
-            <pre><? echo $return; ?></pre>
+            <pre><?php echo $return; ?></pre>
             <br>
             <br>
             <strong>Le(s) répertoire(s) à sauvegarder :</strong>
             <br>
             <br>
-            <?
+            <?php
             $return = NULL;
             foreach($_REPERTOIRES as $key=>$value){
                 $return .= $value.'/'."\n";
             }
             ?>
-            <pre><? echo ($return==NULL ? 'Aucun répertoire':$return); ?></pre>
+            <pre><?php echo ($return==NULL ? 'Aucun répertoire':$return); ?></pre>
             <br>
             <br>
             <strong>Le(s) répertoire(s) et/ou fichier(s) à ignorer :</strong>
             <br>
             <br>
-            <?
+            <?php
             $return = NULL;
             foreach($_IGNORES_TMP as $key=>$value){
                 $return .= $value."\n";
             }
             ?>
-            <pre><? echo ($return==NULL ? 'Aucun répertoire ou fichier':$return); ?></pre>
+            <pre><?php echo ($return==NULL ? 'Aucun répertoire ou fichier':$return); ?></pre>
             <br>
             <br>
             <strong>Tâches CRON :</strong>
             <br>
             <br>
-            <?
+            <?php
             $return = NULL;
             $return .= 'Accès :'."\t\t\t".($_CRON['actif']==true ? 'activé':'désactivé')."\n";
             $return .= 'Archive(s) max. :'."\t".$_CRON['max_archives']."\n";
             $return .= 'URL [confidentiel] :'."\t".str_replace('index.html','cron_'.$_TOKEN.'.php',URL)."\n";
             $return .= 'Email :'."\t\t\t".$_CRON['email']."\n";
             ?>
-            <pre><? echo $return; ?></pre>
+            <pre><?php echo $return; ?></pre>
             <br>
             <br>
             Si la configuration est correcte saisissez un commentaire et cliquez sur &laquo; Lancer la sauvegarde &raquo;.
@@ -151,7 +150,7 @@ if(!isset($_SESSION['CONNECT'])){
         <br>
 		<br>
 		<br>
-        <?
+        <?php
 	}elseif($_POST['launch']==='init'){
         echo html_bkping('base_de_donnees',$_POST['comment']);
     }elseif($_POST['launch']==='base_de_donnees'){
@@ -176,7 +175,7 @@ if(!isset($_SESSION['CONNECT'])){
                     <br>
                 </p>
                 <form id="download_form" action="index.html" method="post" onsubmit="return false">
-                    <input type="hidden" name="download" value="<? echo BKP_FILE ?>">
+                    <input type="hidden" name="download" value="<?php echo BKP_FILE ?>">
                     <input type="submit" value="Télécharger" style="float: left;" onclick="download_archive();">
                 </form>
                 <form action="index.html" method="post" style="float: left;">
@@ -189,7 +188,7 @@ if(!isset($_SESSION['CONNECT'])){
                 <br>
 				<br>
 				<br>
-            <?
+            <?php
         }else{
             echo html_errors($bkp_errors);
         }
