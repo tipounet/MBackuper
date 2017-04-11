@@ -47,7 +47,7 @@ pre.xdebug-var-dump {
 	resize: none;
 	cursor: default;
 	word-wrap: break-word;
-	
+
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
 	-ms-hyphens: auto;
@@ -190,4 +190,9 @@ input[type=submit]:hover {
 	-moz-opacity:0.50;
 	-khtml-opacity:0.50;
 	opacity:0.50;
+}
+
+hr.spacer{
+	width :50%;
+	margin : auto;
 }
