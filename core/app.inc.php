@@ -169,9 +169,7 @@ $_IGNORES_TMP = array_unique($_IGNORES_TMP);
 
 $_IGNORES_BASE = array(
     '/.git/',
-    '',
     '/.idea/',
-    '',
     '.~',
     '.DS_Store',
     '.AppleDouble',
@@ -187,7 +185,6 @@ $_IGNORES_BASE = array(
     'Network Trash Folder',
     'Temporary Items',
     '.apdisk',
-    '',
     'Thumbs.db',
     'ehthumbs.db',
     'Desktop.ini',
@@ -197,8 +194,8 @@ $_IGNORES_BASE = array(
     '.msi',
     '.msm',
     '.msp',
-    '',
     'dwsync.xml',
+    '.htaccess'
 );
 
 $_IGNORES = array_merge($_IGNORES_TMP, $_IGNORES_BASE);
