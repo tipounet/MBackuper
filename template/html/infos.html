@@ -91,19 +91,13 @@
             font-weight: 800;
         }
 
-        .p {
+        p {
             font-size: 14px;
             line-height: 26px;
             font-weight: 100;
         }
 
-        a, .a, a *, .a * {
-            color: #ffffff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        a:visited, .a:visited {
+        a, .a, a *, .a *,a:visited, .a:visited  {
             color: #ffffff;
             text-decoration: none;
             cursor: pointer;
@@ -133,6 +127,13 @@
             color: #983b3b !important;
         }
 
+        .liste-tables {
+            margin-left : 20px;
+            list-style-type: none;
+        }
+        .db{
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -168,15 +169,7 @@
 </p>
 <br>
 <h2 class="h">Base de données :</h2>
-<p>
-    <strong>Chemin :</strong> {$bkp_bdd[fichier]}
-    <br>
-    <strong>Poids :</strong> {$bkp_bdd[poids]}
-    <br>
-    <strong>Table(s) :</strong>
-    <br>
-    <em>{$bkp_bdd[tables]}</em>
-</p>
-<p class="footer"><a href="https://github.com/benyounesmehdi/MBackuper" title="MBackuper" target="_self">MBackuper</a>, copyright <a href="http://www.mehdi-benyounes.com/" title="Site officiel de Mehdi Benyounes" target="_self">Mehdi Benyounes</a>, tous droits réservés</p>
+{$bkp_data[db]}
+<footer class="footer"><a href="https://github.com/benyounesmehdi/MBackuper" title="MBackuper" target="_self">MBackuper</a>, copyright <a href="http://www.mehdi-benyounes.com/" title="Site officiel de Mehdi Benyounes" target="_self">Mehdi Benyounes</a>, tous droits réservés</footer>
 </body>
 </html>
