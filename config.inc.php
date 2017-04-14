@@ -14,7 +14,7 @@
  * pour générer votre mot de passe avec le hachage "PASSWORD_BCRYPT"
  * Utilisez <?php echo password_hash ('MON_MOT_DE_PASSE',PASSWORD_BCRYPT); ?>
  */
-$_PASSWORD = password_hash('tipounet', PASSWORD_BCRYPT);
+$_PASSWORD = '$2y$10$MoOH.a7ErhGeyd8T6DqQV.iye0fAAmmQ33WkedIdfEe1foYBy.M7C';
 
 /**
  * Données de connexion à la base de données
